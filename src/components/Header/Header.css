@@ -1,0 +1,9 @@
+.header nav a {
+  text-decoration: none;
+  margin-left: 10px;
+}
+.header nav a:hover {
+  text-decoration: none;
+  margin-left: 10px;
+  color: coral;
+}
