@@ -4,7 +4,6 @@ import Header from "../Header/Header";
 const Register = () => {
   return (
     <div>
-      <Header />
       <section class="form" id="contact">
         <div class="cart">
           <div class="contact-section">

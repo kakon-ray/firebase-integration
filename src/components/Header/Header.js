@@ -17,8 +17,9 @@ const Header = () => {
     <div className="header">
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/Login">Product</Link>
-        <Link to="/Login">Order</Link>
+        <Link to="/product">Product</Link>
+        <Link to="/order">Order</Link>
+        <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
 
         {user?.uid ? (

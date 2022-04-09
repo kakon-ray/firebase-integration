@@ -11,9 +11,7 @@ const Home = () => {
   console.log(user);
   return (
     <div>
-      <Header />
-
-      <h1>This Is Home Page</h1>
+      <h1>This Is Your Dashbord</h1>
       {user?.uid && (
         <div>
           <img src={user.photoURL} alt="" />

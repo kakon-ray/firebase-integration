@@ -20,7 +20,6 @@ const Login = () => {
   }
   return (
     <div>
-      <Header />
       <section className="form" id="contact">
         <div className="cart">
           <div className="contact-section">
