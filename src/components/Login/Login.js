@@ -2,22 +2,25 @@ import React from "react";
 
 import Header from "../Header/Header";
 import "./Login.css";
-import {
-  useSignInWithGithub,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import app from "../../firebase.init";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, useLocation } from "react-router-dom";
 
 const auth = getAuth(app);
 const Login = () => {
   const [singInWithGoogle, user] = useSignInWithGoogle(auth);
 
-  const navigate = useNavigate();
-  if (user) {
-    navigate("/");
-  }
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  const handleSubmit = (e) => {
+    singInWithGoogle().then(() => {
+      navigate(from, { replace: true });
+    });
+  };
   return (
     <div>
       <section className="form" id="contact">
@@ -35,7 +38,7 @@ const Login = () => {
             <input type="submit" value="Submit" />
             <div style={{ marginTop: "20px" }}>
               <img
-                onClick={() => singInWithGoogle()}
+                onClick={handleSubmit}
                 style={{ width: "50px", height: "50px", cursor: "pointer" }}
                 src="https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png"
                 alt=""
