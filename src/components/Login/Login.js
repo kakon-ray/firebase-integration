@@ -1,5 +1,5 @@
 import React from "react";
-import useFirebase from "../../CostomHooks/useFirebase";
+
 import Header from "../Header/Header";
 import "./Login.css";
 import {
@@ -8,10 +8,16 @@ import {
 } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import app from "../../firebase.init";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(app);
 const Login = () => {
   const [singInWithGoogle, user] = useSignInWithGoogle(auth);
+
+  const navigate = useNavigate();
+  if (user) {
+    navigate("/");
+  }
   return (
     <div>
       <Header />
